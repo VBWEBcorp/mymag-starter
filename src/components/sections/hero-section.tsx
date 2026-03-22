@@ -3,6 +3,7 @@ import { ArrowRight, Phone } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { ValuesMarquee } from '@/components/sections/values-marquee'
 import { Button } from '@/components/ui/button'
 
 const ease = [0.22, 1, 0.36, 1] as const
@@ -114,6 +115,11 @@ export function HeroSection() {
             />
           ))}
         </div>
+      </div>
+
+      {/* Values marquee */}
+      <div className="relative">
+        <ValuesMarquee variant="dark" />
       </div>
     </section>
   )

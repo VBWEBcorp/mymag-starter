@@ -17,8 +17,7 @@ import {
   webPageJsonLd,
 } from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
-import { Breadcrumb } from '@/components/ui/breadcrumb'
-import { SectionTitle } from '@/components/ui/section-title'
+import { PageHero } from '@/components/sections/page-hero'
 import {
   Card,
   CardDescription,
@@ -96,23 +95,17 @@ export function ServicesPage() {
         jsonLd={jsonLd}
       />
 
-      <Breadcrumb items={[{ label: 'Services' }]} />
+      <PageHero
+        eyebrow="Services"
+        title="Tout ce qu'il faut pour réussir en ligne"
+        description="Des prestations complètes, de la conception à l'accompagnement continu, adaptées à toutes les tailles d'entreprise."
+        image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1920&q=80"
+        breadcrumb="Services"
+      />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-          >
-            <SectionTitle
-              eyebrow="Services"
-              title="Tout ce qu'il faut pour réussir en ligne"
-              description="Des prestations complètes, de la conception à l'accompagnement continu, adaptées à toutes les tailles d'entreprise."
-            />
-          </motion.div>
-
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((s, i) => (
               <motion.div
                 key={s.title}

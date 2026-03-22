@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone } from 'lucide-react'
 
 import { SeoHead } from '@/components/seo/seo-head'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
-import { Breadcrumb } from '@/components/ui/breadcrumb'
+import { PageHero } from '@/components/sections/page-hero'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -36,29 +36,17 @@ export function ContactPage() {
         jsonLd={jsonLd}
       />
 
-      <Breadcrumb items={[{ label: 'Contact' }]} />
+      <PageHero
+        eyebrow="Contact"
+        title="Parlons de votre projet"
+        description="Remplissez le formulaire ci-dessous ou contactez-nous directement. Nous répondons sous 24h."
+        image="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&w=1920&q=80"
+        breadcrumb="Contact"
+      />
 
       <section className="border-b border-border/60">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-primary uppercase">
-              Contact
-            </p>
-            <h1 className="mt-6 font-display text-balance text-4xl leading-[1.08] tracking-[-0.03em] text-foreground sm:text-5xl">
-              Parlons de votre projet
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Remplissez le formulaire ci-dessous ou contactez-nous directement.
-              Nous répondons sous 24h.
-            </p>
-          </motion.div>
-
-          <div className="mt-14 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}

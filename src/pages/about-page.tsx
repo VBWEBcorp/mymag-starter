@@ -4,7 +4,7 @@ import { Heart, Lightbulb, Users } from 'lucide-react'
 import { SeoHead } from '@/components/seo/seo-head'
 import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
-import { Breadcrumb } from '@/components/ui/breadcrumb'
+import { PageHero } from '@/components/sections/page-hero'
 import { SectionTitle } from '@/components/ui/section-title'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
@@ -52,31 +52,13 @@ export function AboutPage() {
         jsonLd={jsonLd}
       />
 
-      <Breadcrumb items={[{ label: 'À propos' }]} />
-
-      <section className="border-b border-border/60">
-        <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease }}
-            className="mx-auto max-w-3xl text-center"
-          >
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-primary uppercase">
-              À propos
-            </p>
-            <h1 className="mt-6 font-display text-balance text-4xl leading-[1.08] tracking-[-0.03em] text-foreground sm:text-5xl">
-              Une équipe engagée à vos côtés
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Nous croyons que chaque entreprise mérite une présence en ligne à
-              la hauteur de ses ambitions. Depuis notre création, nous
-              accompagnons artisans, PME et indépendants avec des solutions
-              simples, efficaces et soignées.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="À propos"
+        title="Une équipe engagée à vos côtés"
+        description="Nous croyons que chaque entreprise mérite une présence en ligne à la hauteur de ses ambitions. Depuis notre création, nous accompagnons artisans, PME et indépendants avec des solutions simples, efficaces et soignées."
+        image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1920&q=80"
+        breadcrumb="À propos"
+      />
 
       <section className="border-b border-border/60 bg-muted/10">
         <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
