@@ -1,12 +1,20 @@
 export const siteConfig = {
-  name: 'Mymag',
-  url: 'https://mymag.app',
+  name: 'Nom Entreprise',
+  url: 'https://www.example.com',
   locale: 'fr_FR',
   description:
-    'Mymag — interface SaaS premium, modulaire et prête pour la croissance. Base React, TypeScript, Tailwind, shadcn/ui.',
-  ogImage: 'https://mymag.app/og.png',
-  twitterHandle: '@mymag',
+    'Votre entreprise — description courte et percutante de votre activité. Adaptez cette ligne à votre domaine.',
+  ogImage: 'https://www.example.com/og.png',
+  twitterHandle: '@votrecompte',
   themeColor: '#6d28d9',
+  phone: '+33 1 23 45 67 89',
+  email: 'contact@example.com',
+  address: {
+    street: '12 Rue Exemple',
+    city: 'Paris',
+    postalCode: '75001',
+    country: 'FR',
+  },
 } as const
 
 export type SeoMeta = {
@@ -24,4 +32,10 @@ export function buildTitle(page?: string) {
   return `${page} — ${siteConfig.name}`
 }
 
-export const routes = ['/', '/features', '/pricing'] as const
+export const routes = [
+  '/',
+  '/a-propos',
+  '/services',
+  '/contact',
+  '/mentions-legales',
+] as const

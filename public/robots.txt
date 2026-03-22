@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://mymag.app/sitemap.xml
+Sitemap: https://www.example.com/sitemap.xml

@@ -1,18 +1,23 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+
 import { Logo } from '@/components/layout/logo'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 const links = [
-  { href: '#product', label: 'Produit' },
-  { href: '#features', label: 'Fonctionnalités' },
-  { href: '#pricing', label: 'Tarifs' },
+  { to: '/', label: 'Accueil' },
+  { to: '/a-propos', label: 'À propos' },
+  { to: '/services', label: 'Services' },
+  { to: '/contact', label: 'Contact' },
 ] as const
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
@@ -24,23 +29,25 @@ export function Navbar() {
           aria-label="Navigation principale"
         >
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60"
+            <Link
+              key={l.to}
+              to={l.to}
+              className={cn(
+                'rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60',
+                pathname === l.to
+                  ? 'text-foreground'
+                  : 'text-muted-foreground'
+              )}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
-          <Button variant="ghost" size="sm" asChild>
-            <a href="#login">Connexion</a>
-          </Button>
           <Button size="sm" asChild>
-            <a href="#cta">Essayer gratuitement</a>
+            <Link to="/contact">Nous contacter</Link>
           </Button>
         </div>
 
@@ -73,25 +80,25 @@ export function Navbar() {
           >
             <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6">
               {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  className="rounded-xl px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-muted"
+                <Link
+                  key={l.to}
+                  to={l.to}
+                  className={cn(
+                    'rounded-xl px-3 py-3 text-base font-medium transition-colors hover:bg-muted',
+                    pathname === l.to
+                      ? 'text-foreground'
+                      : 'text-muted-foreground'
+                  )}
                   onClick={() => setOpen(false)}
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
-              <div className="mt-2 flex flex-col gap-2 border-t border-border/60 pt-4">
-                <Button variant="outline" asChild>
-                  <a href="#login" onClick={() => setOpen(false)}>
-                    Connexion
-                  </a>
-                </Button>
-                <Button asChild>
-                  <a href="#cta" onClick={() => setOpen(false)}>
-                    Essayer gratuitement
-                  </a>
+              <div className="mt-2 border-t border-border/60 pt-4">
+                <Button className="w-full" asChild>
+                  <Link to="/contact" onClick={() => setOpen(false)}>
+                    Nous contacter
+                  </Link>
                 </Button>
               </div>
             </div>

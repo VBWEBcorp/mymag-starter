@@ -1,17 +1,16 @@
 import {
+  localBusinessJsonLd,
   organizationJsonLd,
-  softwareApplicationJsonLd,
   webPageJsonLd,
   webSiteJsonLd,
 } from '@/components/seo/json-ld'
 import { SeoHead } from '@/components/seo/seo-head'
-import { BentoSection } from '@/components/sections/bento-section'
 import { CtaSection } from '@/components/sections/cta-section'
-import { FeaturesSection } from '@/components/sections/features-section'
+import { GalleryCarousel } from '@/components/sections/gallery-carousel'
 import { HeroSection } from '@/components/sections/hero-section'
-import { LogosStrip } from '@/components/sections/logos-strip'
-import { PricingSection } from '@/components/sections/pricing-section'
-import { StatsSection } from '@/components/sections/stats-section'
+import { ServicesPreview } from '@/components/sections/services-preview'
+import { StorySection } from '@/components/sections/story-section'
+import { TestimonialsSection } from '@/components/sections/testimonials-section'
 import { siteConfig } from '@/lib/seo'
 
 const jsonLd = {
@@ -19,8 +18,8 @@ const jsonLd = {
   '@graph': [
     webSiteJsonLd(),
     organizationJsonLd(),
+    localBusinessJsonLd(),
     webPageJsonLd(siteConfig.name, siteConfig.description, '/'),
-    softwareApplicationJsonLd(),
   ],
 }
 
@@ -33,11 +32,10 @@ export function HomePage() {
         jsonLd={jsonLd}
       />
       <HeroSection />
-      <LogosStrip />
-      <FeaturesSection />
-      <BentoSection />
-      <StatsSection />
-      <PricingSection />
+      <ServicesPreview />
+      <StorySection />
+      <TestimonialsSection />
+      <GalleryCarousel />
       <CtaSection />
     </>
   )
