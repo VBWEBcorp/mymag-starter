@@ -1,6 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 
@@ -33,7 +35,7 @@ export function CtaSection() {
               vous proposer la meilleure approche.
             </p>
             <Button size="lg" className="group" asChild>
-              <Link to="/contact">
+              <Link href="/contact">
                 Demander un devis gratuit
                 <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
               </Link>

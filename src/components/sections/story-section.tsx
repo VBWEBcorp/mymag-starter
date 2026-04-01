@@ -1,6 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 
@@ -48,7 +50,7 @@ export function StorySection() {
               Une approche humaine, des résultats concrets
             </h2>
             <p className="text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Depuis nos débuts, nous croyons qu'un bon site commence par une
+              Depuis nos débuts, nous croyons qu&apos;un bon site commence par une
               bonne écoute. Nous prenons le temps de comprendre votre métier,
               vos clients et vos objectifs avant de concevoir quoi que ce soit.
             </p>
@@ -57,7 +59,7 @@ export function StorySection() {
               votre audience, et qui travaillent pour vous 24h/24.
             </p>
             <Button variant="outline" className="group" asChild>
-              <Link to="/a-propos">
+              <Link href="/a-propos">
                 Lire plus
                 <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
               </Link>

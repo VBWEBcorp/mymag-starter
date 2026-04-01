@@ -1,7 +1,10 @@
+'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 
 import { Logo } from '@/components/layout/logo'
 import { ThemeToggle } from '@/components/theme/theme-toggle'
@@ -17,7 +20,7 @@ const links = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
+  const pathname = usePathname()
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/75 backdrop-blur-xl supports-[backdrop-filter]:bg-background/55">
@@ -31,7 +34,7 @@ export function Navbar() {
           {links.map((l) => (
             <Link
               key={l.to}
-              to={l.to}
+              href={l.to}
               className={cn(
                 'rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-muted/80 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/60',
                 pathname === l.to
@@ -47,7 +50,7 @@ export function Navbar() {
         <div className="hidden items-center gap-2 md:flex">
           <ThemeToggle />
           <Button size="sm" asChild>
-            <Link to="/contact">Nous contacter</Link>
+            <Link href="/contact">Nous contacter</Link>
           </Button>
         </div>
 
@@ -82,7 +85,7 @@ export function Navbar() {
               {links.map((l) => (
                 <Link
                   key={l.to}
-                  to={l.to}
+                  href={l.to}
                   className={cn(
                     'rounded-xl px-3 py-3 text-base font-medium transition-colors hover:bg-muted',
                     pathname === l.to
@@ -96,7 +99,7 @@ export function Navbar() {
               ))}
               <div className="mt-2 border-t border-border/60 pt-4">
                 <Button className="w-full" asChild>
-                  <Link to="/contact" onClick={() => setOpen(false)}>
+                  <Link href="/contact" onClick={() => setOpen(false)}>
                     Nous contacter
                   </Link>
                 </Button>

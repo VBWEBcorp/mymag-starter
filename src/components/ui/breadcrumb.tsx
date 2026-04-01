@@ -1,5 +1,5 @@
 import { ChevronRight, Home } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 export type BreadcrumbItem = {
   label: string
@@ -19,7 +19,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
       <ol className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground">
         <li className="flex items-center gap-1.5">
           <Link
-            to="/"
+            href="/"
             className="flex items-center gap-1 transition-colors hover:text-foreground"
           >
             <Home className="size-3" aria-hidden />
@@ -37,7 +37,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                 </span>
               ) : (
                 <Link
-                  to={item.to}
+                  href={item.to}
                   className="transition-colors hover:text-foreground"
                 >
                   {item.label}

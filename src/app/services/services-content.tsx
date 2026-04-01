@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import {
   BarChart3,
@@ -10,12 +12,6 @@ import {
   Smartphone,
 } from 'lucide-react'
 
-import { SeoHead } from '@/components/seo/seo-head'
-import {
-  breadcrumbJsonLd,
-  serviceJsonLd,
-  webPageJsonLd,
-} from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
 import { PageHero } from '@/components/sections/page-hero'
 import {
@@ -70,31 +66,9 @@ const services = [
   },
 ] as const
 
-const description =
-  'Création de site, SEO, identité visuelle, développement sur mesure — découvrez nos services pour développer votre activité en ligne.'
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    webPageJsonLd('Services', description, '/services'),
-    breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
-      { name: 'Services', path: '/services' },
-    ]),
-    ...services.map((s) => serviceJsonLd(s.title, s.desc, '/services')),
-  ],
-}
-
-export function ServicesPage() {
+export function ServicesContent() {
   return (
     <>
-      <SeoHead
-        title="Services"
-        description={description}
-        canonical="/services"
-        jsonLd={jsonLd}
-      />
-
       <PageHero
         eyebrow="Services"
         title="Tout ce qu'il faut pour réussir en ligne"

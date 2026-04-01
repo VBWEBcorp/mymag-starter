@@ -1,7 +1,9 @@
+'use client'
+
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, Phone } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 
 import { ValuesMarquee } from '@/components/sections/values-marquee'
 import { Button } from '@/components/ui/button'
@@ -70,7 +72,7 @@ export function HeroSection() {
           </p>
           <h1 className="mt-6 font-display text-balance text-4xl leading-[1.08] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
             Votre partenaire pour{' '}
-            <span className="text-primary-foreground/90 drop-shadow-sm">
+            <span className="text-primary-foreground/90 drop-shadow-sm dark:text-primary">
               réussir en ligne
             </span>
           </h1>
@@ -80,7 +82,7 @@ export function HeroSection() {
           </p>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <Button size="lg" className="group" asChild>
-              <Link to="/contact">
+              <Link href="/contact">
                 Prendre contact
                 <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
               </Link>
@@ -91,7 +93,7 @@ export function HeroSection() {
               className="border-white/25 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white"
               asChild
             >
-              <Link to="/services">
+              <Link href="/services">
                 <Phone className="size-4" />
                 Découvrir nos services
               </Link>

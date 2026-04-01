@@ -170,6 +170,9 @@
   .animate-marquee-right {
     animation: marquee-right 45s linear infinite;
   }
+  .animate-marquee-bar {
+    animation: marquee-left 30s linear infinite;
+  }
 }
 
 @keyframes marquee-left {

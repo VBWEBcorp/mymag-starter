@@ -1,5 +1,5 @@
 import { Globe } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import { cn } from '@/lib/utils'
 import { siteConfig } from '@/lib/seo'
@@ -11,7 +11,7 @@ type LogoProps = {
 export function Logo({ className }: LogoProps) {
   return (
     <Link
-      to="/"
+      href="/"
       className={cn(
         'group inline-flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-foreground transition-opacity hover:opacity-90',
         className

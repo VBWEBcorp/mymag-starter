@@ -1,8 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { Heart, Lightbulb, Users } from 'lucide-react'
 
-import { SeoHead } from '@/components/seo/seo-head'
-import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 import { CtaSection } from '@/components/sections/cta-section'
 import { PageHero } from '@/components/sections/page-hero'
 import { SectionTitle } from '@/components/ui/section-title'
@@ -28,30 +28,9 @@ const values = [
   },
 ] as const
 
-const description =
-  'Découvrez notre histoire, nos valeurs et notre équipe. Nous accompagnons les entreprises dans leur développement digital.'
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    webPageJsonLd('À propos', description, '/a-propos'),
-    breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
-      { name: 'À propos', path: '/a-propos' },
-    ]),
-  ],
-}
-
-export function AboutPage() {
+export function AboutContent() {
   return (
     <>
-      <SeoHead
-        title="À propos"
-        description={description}
-        canonical="/a-propos"
-        jsonLd={jsonLd}
-      />
-
       <PageHero
         eyebrow="À propos"
         title="Une équipe engagée à vos côtés"

@@ -1,6 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ChevronRight, Home } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
@@ -32,7 +34,7 @@ export function PageHero({ eyebrow, title, description, image, breadcrumb }: Pag
           <ol className="flex flex-wrap items-center gap-1.5 text-xs text-white/50">
             <li className="flex items-center gap-1.5">
               <Link
-                to="/"
+                href="/"
                 className="flex items-center gap-1 transition-colors hover:text-white/80"
               >
                 <Home className="size-3" aria-hidden />

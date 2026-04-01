@@ -1,8 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone } from 'lucide-react'
 
-import { SeoHead } from '@/components/seo/seo-head'
-import { breadcrumbJsonLd, webPageJsonLd } from '@/components/seo/json-ld'
 import { PageHero } from '@/components/sections/page-hero'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -12,30 +12,9 @@ import { siteConfig } from '@/lib/seo'
 
 const ease = [0.22, 1, 0.36, 1] as const
 
-const description =
-  'Contactez-nous pour discuter de votre projet. Devis gratuit, réponse rapide.'
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    webPageJsonLd('Contact', description, '/contact'),
-    breadcrumbJsonLd([
-      { name: 'Accueil', path: '/' },
-      { name: 'Contact', path: '/contact' },
-    ]),
-  ],
-}
-
-export function ContactPage() {
+export function ContactContent() {
   return (
     <>
-      <SeoHead
-        title="Contact"
-        description={description}
-        canonical="/contact"
-        jsonLd={jsonLd}
-      />
-
       <PageHero
         eyebrow="Contact"
         title="Parlons de votre projet"

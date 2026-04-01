@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'

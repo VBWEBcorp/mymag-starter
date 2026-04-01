@@ -1,3 +1,5 @@
+'use client'
+
 import { Moon, Sun } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -8,15 +10,12 @@ type ThemeToggleProps = {
   className?: string
 }
 
-function readInitialDark() {
-  const stored = localStorage.getItem('mymag-theme')
-  if (stored === 'dark') return true
-  if (stored === 'light') return false
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-}
-
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const [dark, setDark] = useState(() => readInitialDark())
+  const [dark, setDark] = useState(false)
+
+  useEffect(() => {
+    setDark(document.documentElement.classList.contains('dark'))
+  }, [])
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)

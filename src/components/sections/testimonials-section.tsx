@@ -85,7 +85,7 @@ function TestimonialCard({
   testimonial: { name: string; role: string; quote: string; stars: number }
 }) {
   return (
-    <figure className="flex w-[300px] shrink-0 flex-col rounded-xl border border-border/60 bg-card/80 px-5 py-4 shadow-[var(--shadow-xs)] ring-1 ring-foreground/[0.03] backdrop-blur-sm">
+    <figure className="flex h-[180px] w-[300px] shrink-0 flex-col rounded-xl border border-border/60 bg-card/80 px-5 py-4 shadow-[var(--shadow-xs)] ring-1 ring-foreground/[0.03] backdrop-blur-sm">
       {/* Header: stars + Google logo */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-0.5">
@@ -140,12 +140,12 @@ function MarqueeRow({
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent sm:w-24" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent sm:w-24" />
 
-      <div className={`flex shrink-0 gap-4 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
+      <div className={`flex shrink-0 gap-6 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
         {items.map((t) => (
           <TestimonialCard key={t.name} testimonial={t} />
         ))}
       </div>
-      <div aria-hidden className={`flex shrink-0 gap-4 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
+      <div aria-hidden className={`flex shrink-0 gap-6 py-2 ${animationClass} group-hover:[animation-play-state:paused]`}>
         {items.map((t) => (
           <TestimonialCard key={t.name} testimonial={t} />
         ))}
@@ -165,7 +165,7 @@ export function TestimonialsSection() {
         />
       </div>
 
-      <div className="mt-10 space-y-2 pb-14 lg:pb-20">
+      <div className="mt-10 space-y-6 pb-14 lg:pb-20">
         <MarqueeRow items={topRow} direction="left" />
         <MarqueeRow items={bottomRow} direction="right" />
       </div>

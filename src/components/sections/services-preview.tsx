@@ -1,6 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { ArrowRight, Globe, Palette, Search, ShieldCheck } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 import { SectionTitle } from '@/components/ui/section-title'
 import { Button } from '@/components/ui/button'
@@ -67,7 +69,7 @@ export function ServicesPreview() {
         </div>
         <div className="mt-10 text-center">
           <Button variant="outline" className="group" asChild>
-            <Link to="/services">
+            <Link href="/services">
               Voir tous nos services
               <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
             </Link>
